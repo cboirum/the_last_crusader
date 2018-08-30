@@ -273,8 +273,8 @@ def draw_Sprite_on_Body(body):
     baseImage = spriteStrips[body.type].next()
     (x,y)= body.worldCenter*PPM
     im = baseImage.get_rect()
-    sX = boxL_pix
-    sY = boxH_pix
+    sX = int(boxL_pix)
+    sY = int(boxH_pix)
     if debug:
         print sX,sY
         print ("sprite:" +str(sprX) +" " + str(sprY))

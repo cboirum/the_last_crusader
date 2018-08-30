@@ -239,7 +239,7 @@ def terrainTester(world):
     #interper = interpolate.interp2d(x,y,z)
     interper = interpolate.RectBivariateSpline(x,y,z)
     zNew = interper(x2,y2)
-    middle2 = math.floor(zNew.shape[0]/2)
+    middle2 = int(math.floor(zNew.shape[0]/2))
 #    print zNew.shape
 ##    print dir(zNew)
 ##    tt2 = array(zNew)

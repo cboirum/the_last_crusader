@@ -1433,7 +1433,7 @@ def takeBites7(POCs,r,body,VOCs,packing=10):
            plt.show()
  
             
-def particleFill(circR,boundary,world, res = 4, parent = False,biteGons=False,VOCs=False):
+def particleFill(circR,boundary,world, res = 4, parent = False, biteGons=False, VOCs=False):
     """
     takes in polygon, identifies circle centers for contained and intersecting circles.
     Adds circles to the physics world. Keeps parent body saved into particle's userdata.
@@ -1734,7 +1734,7 @@ def terrainTester(world,vertLimit,Method='Default'):
     #interper = interpolate.interp2d(x,y,z)
     interper = interpolate.RectBivariateSpline(x,y,z)
     zNew = interper(x2,y2)
-    middle2 = math.floor(zNew.shape[0]/2)
+    middle2 = int(math.floor(zNew.shape[0]/2))
 #    print zNew.shape
 ##    print dir(zNew)
 ##    tt2 = array(zNew)

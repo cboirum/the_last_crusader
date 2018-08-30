@@ -34,18 +34,29 @@ Mouse:
     Scroll      - zoom
 
 """
+import sys
+
+#sys.path.append('C:\\Users\\cboir\\eclipse-workspace\\the_last_crsader')
+#print(sys.path)
 
 import pygame
+
 import framework
+
 from pygame.locals import *
+
 from framework import *
 
+
+
+
 try:
-    from pygame_gui import (fwGUI, gui)
+    from examples.backends.pygame_gui import (fwGUI, gui)
     GUIEnabled = True
 except:
     print('Unable to load PGU; menu disabled.')
     GUIEnabled = False
+
 
 class PygameDraw(b2DrawExtended):
     """

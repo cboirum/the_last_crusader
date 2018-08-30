@@ -17,9 +17,12 @@
 # 2. Altered source versions must be plainly marked as such, and must not be
 # misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
-
-import pygame
+import sys
+sys.path.insert(0,'C:\\Users\\cboir\\eclipse-workspace\\the_last_crusader\\src\\examples')
 from framework import *
+import pygame
+
+
 import spriteUtils4
 import Assets
 PPM = 20 #Pixels Per Meter
@@ -289,7 +292,7 @@ class Pyramid (Framework):
             VOCs = self.contactVels[body.userData['ID']]
             #Assets.takeBites(POCs,r,body)
             #Assets.takeBites4(POCs,r,body)
-            Assets.takeBites6(POCs,r,body,VOCs = VOCs,packing=self.packing)
+            Assets.takeBites7(POCs,r,body,VOCs = VOCs,packing=self.packing)
 #            if len(self.tempBodies) < self.tempBodiesLimit:
 #                self.tempBodies.append(Assets.addCircle(self.world,point,1))
 #                self.tempBodies[-1].bullet = True

@@ -23,12 +23,15 @@
 # Ported from the Cloth test by Paril, originally for Box2CS:
 #   http://www.box2d.org/forum/viewtopic.php?f=6&t=6124
 #
+import sys
+sys.path.insert(0,'C:\\Users\\cboir\\eclipse-workspace\\the_last_crusader\\src\\examples')
 from framework import *
 import Assets
 from matplotlib.path import Path
 import matplotlib.patches as patches
 #from shapely.geometry import LineString
 from shapely.geometry import Polygon
+from Box2D import *
 
 remove_neighbors = True #remove joints next those that break (to eliminate stringy leftover joints)
 distance_factor_param = 1.3
