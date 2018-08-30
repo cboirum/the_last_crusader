@@ -132,6 +132,8 @@ class FrameworkBase(b2ContactListener):
         self.world.destructionListener = self.destructionListener
         self.world.contactListener = self
         self.t_steps, self.t_draws = [], []
+        self.bomb_density = 30
+        self.bomb_radius = 0.3
 
     def __del__(self):
         pass
@@ -379,8 +381,8 @@ class FrameworkBase(b2ContactListener):
             position=position,
             linearVelocity=velocity,
             fixtures=b2FixtureDef(
-                shape=b2CircleShape(radius=0.3),
-                density=20,
+                shape=b2CircleShape(radius=self.bomb_radius),
+                density=self.bomb_density,
                 restitution=0.1)
 
         )

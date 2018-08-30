@@ -1438,6 +1438,7 @@ def particleFill(circR,boundary,world, res = 4, parent = False, biteGons=False, 
     takes in polygon, identifies circle centers for contained and intersecting circles.
     Adds circles to the physics world. Keeps parent body saved into particle's userdata.
     """
+    #print("FIlling with ")
     debug = False
     parenting = False #True makes gibs attatch to parent
     if not world:
@@ -1450,7 +1451,7 @@ def particleFill(circR,boundary,world, res = 4, parent = False, biteGons=False, 
     H = 40
     D = circR*2.0
     cols = int(W/(D))+1
-    hexHeight = D*math.sin(math.pi/3)
+    hexHeight = int(D*math.sin(math.pi/3))
     rows = H/(hexHeight)+1
     gridXY = []
     gridOffset = boundary.centroid.xy

@@ -84,12 +84,15 @@ class PygameDraw(b2DrawExtended):
         self.flipY = True
         self.convertVertices = True
         self.test = test
+        
 
     def StartDraw(self):
         self.zoom = self.test.viewZoom
         self.center = self.test.viewCenter
         self.offset = self.test.viewOffset
         self.screenSize = self.test.screenSize
+        #self.test.screenSize = b2Vec2(640,480)
+        
 
     def EndDraw(self):
         pass
@@ -234,7 +237,9 @@ class PygameFramework(FrameworkBase):
 
     def __init__(self):
         super(PygameFramework, self).__init__()
-
+        
+        self.screenWidth = 1920
+        self.screenHeight = 1080
         self.__reset()
         if fwSettings.onlyInit:  # testing mode doesn't initialize pygame
             return
@@ -246,7 +251,7 @@ class PygameFramework(FrameworkBase):
         pygame.display.set_caption(caption)
 
         # Screen and debug draw
-        self.screen = pygame.display.set_mode((640, 480))
+        self.screen = pygame.display.set_mode((self.screenWidth, self.screenHeight))
         self.screenSize = b2Vec2(*self.screen.get_size())
 
         self.renderer = PygameDraw(surface=self.screen, test=self)

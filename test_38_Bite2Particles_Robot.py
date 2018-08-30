@@ -30,6 +30,8 @@ biteSize = 10 #Initial domain cut radius
 particlePerBite = 10 #Particals Per cut diameter
 groundMethod = 'Simple'#'Default'#'New1'
 specialContact = True
+bomb_density = 30000000
+bomb_radius = .003
 class Pyramid (Framework):
     name="Pyramid"
     delay = 100
@@ -43,6 +45,7 @@ class Pyramid (Framework):
     groundMethod = groundMethod#'Default'#New1
     upForce = 1000000
     pitchTorque = 10000000
+    
     def __init__(self):
         super(Pyramid, self).__init__()
         self.flightModel = 'Realistic'#'Arcade' #'Realistic'
@@ -60,7 +63,9 @@ class Pyramid (Framework):
         self.cutRadius = biteSize
         self.packing = particlePerBite #particles per cutRadius chord  
         self.world.particles = []      
-        
+        self.screenSize = b2Vec2(190,600)
+        self.bomb_density = bomb_density
+        self.bomb_radius = bomb_radius
         
         position = (40,50)
         
