@@ -17,8 +17,11 @@
 # 2. Altered source versions must be plainly marked as such, and must not be
 # misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
-import sys
-sys.path.insert(0,'C:\\Users\\cboir\\eclipse-workspace\\the_last_crusader\\src\\examples')
+import sys, os
+#sys.path.insert(0,os.path.dirname(__file__))
+sys.path.insert(0,os.path.join(os.path.dirname(__file__), 'src\\examples'))
+print sys.path[0]
+#sys.path.insert(0,'..\\the_last_crusader\\src\\examples')
 from framework import *
 import pygame
 
@@ -32,6 +35,8 @@ groundMethod = 'Simple'#'Default'#'New1'
 specialContact = True
 bomb_density = 30000000
 bomb_radius = .003
+remove_particles = True
+body_limit = 400
 class Pyramid (Framework):
     name="Pyramid"
     delay = 100
@@ -115,6 +120,8 @@ class Pyramid (Framework):
                 userData = userData
                 )
         body3.CreatePolygonFixture(vertices=boxV, density=.1, friction=1)
+
+        
         
         self.playerBody = playerBody = crusader1#body2#crusader1
         
@@ -150,6 +157,29 @@ class Pyramid (Framework):
         #create simulation area for squre (a circle to start with that will be 
         #subtracted from the square geometry as a hole and square will be remeshed
         #with trimesh
+        #self.addQuad('Box3', 917.315759, [], True,     10,         0.1,    1,      100,       90,     10, 10)
+        for i in range(4):
+            self.addQuad('Box'+str((i+3)), 917.315759, [], True,     10,         0.1,    1,      150+10*i,       10,    100, 10)
+
+        #addQuad(self, ID, limitKE, Polygon, Breakable, Stiffness, desnity, friction, Position_X, Position_Y, bH, bL)
+
+    def addQuad(self, ID, limitKE, Polygon, Breakable, Stiffness, desnity, friction, Position_X, Position_Y, bH, bL):
+        position = (Position_X,Position_Y)
+        userData = { 'ID': ID,
+                     'limitKE': limitKE,#917.315759,
+                     'Polygon': Polygon,#[],
+                     'Breakable': Breakable,#,True,
+                     'Stiffness': Stiffness }#10}
+        boxV = [(0,0),
+                    (bL,0),
+                    (bL,bH),
+                    (0,bH),]
+        body3 = self.world.CreateDynamicBody(
+                position= (Position_X, Position_Y), 
+                userData = userData
+                )
+        body3.CreatePolygonFixture(vertices=boxV, density=desnity, friction = friction)#.1, friction=1)
+        
     def addPlayer(self,playerBody,position):
         
         
@@ -301,6 +331,9 @@ class Pyramid (Framework):
 #            if len(self.tempBodies) < self.tempBodiesLimit:
 #                self.tempBodies.append(Assets.addCircle(self.world,point,1))
 #                self.tempBodies[-1].bullet = True
+        if remove_particles:
+            if len(self.world.particles)>body_limit:
+                self.world.particles = self.world.particles[:body_limit]
         for body in self.world.particles:
             """
             Calculate relative velocity of particle and it's parent body.
