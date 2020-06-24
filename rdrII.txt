@@ -1,0 +1,5 @@
+cboirum@mail.bradley.edu, cboirum@gmail.com
+rboirum@andrew.cmu.edu
+Purchased Red Dead Redemption II on Steam last night (3-18-02). Installed but was unable to play due to Rockstar Social Club persistent error. Spent several hours attempting to find a fix through resetting passwords and updating email addresses on my Rockstar Social Club through the web interface.
+
+Symptom: Launching RDRII from Steam results in Rockstar Social Club app notice that a verification email must be sent to "rboirum@bradley.edu". This email is out of date and I cannot seem to change it. This may also indicate that my Steam account is linked to my brother's Rockstar Social Club, as he had purchased and attempted to play Grand Theft Auto V using my Steam account, but was unable to play at all due to this same error. My brother and I share a Steam account and are both available to troubleshoot this. 

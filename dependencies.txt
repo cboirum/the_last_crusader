@@ -1,0 +1,12 @@
+last_crusader dependency hell
+need: 
+python 2.7
+pygame
+swig.exe
+MVC for python27: https://www.microsoft.com/en-us/download/confirmation.aspx?id=44266
+box2d-py
+matplotlib
+scipy
+pybind11
+meshpy - had to use binary
+shapely - had to use binary

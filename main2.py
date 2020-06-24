@@ -61,7 +61,7 @@ class spritesheet(object):
     def __init__(self, filename):
         try:
             self.sheet = pygame.image.load(filename).convert()
-        except pygame.error, message:
+        except (pygame.error, message):
             print 'Unable to load spritesheet image:', filename
             raise SystemExit, message
     # Load a specific image from a specific rectangle
@@ -303,7 +303,7 @@ class Particle():
         self.radius = properties[1]
         
     def update(self):
-        
+        return
 class Player(pygame.sprite.Sprite):
     speed = 10
     bounce = 24
